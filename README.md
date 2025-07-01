@@ -1,23 +1,22 @@
-# Nextra Docs Template 
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+# Visit the site [here](https://jeffrey-m.com)!
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+## Personal Site
+This is a personal portfolio of sorts for myself, nothing more to explain.
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+## Copyright / License
 
-## Quick Start
+Copyright © 2025 Jeffrey Morris, All Rights Reserved.
 
-Click the button to clone this repository and deploy it on Vercel:
+This product and its associated files are the intellectual property of [Jeffrey Morris](https://github.com/daflamingfox).
 
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+Unless explicit written permission is granted by the owner;, you may NOT:
 
-## Local Development
+- distribute or share the product or its files
+- clone, copy, or reproduce the product or its files
+- modify, adapt, or create derivative works of the product or its files
+- reverse-engineer, decompile, or disassemble any part of the product or its files
+- use the product or its files for any commercial purposes
+- use the product or its files in any way not explicitly authorized by the owner
 
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+Unauthorized use is strictly prohibited and may result in legal consequences.
