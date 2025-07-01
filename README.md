@@ -10,7 +10,7 @@ Copyright © 2025 Jeffrey Morris, All Rights Reserved.
 
 This product and its associated files are the intellectual property of [Jeffrey Morris](https://github.com/daflamingfox).
 
-Unless explicit written permission is granted by the owner;, you may NOT:
+Unless explicit written permission is granted by the owner, you may NOT:
 
 - distribute or share the product or its files
 - clone, copy, or reproduce the product or its files
