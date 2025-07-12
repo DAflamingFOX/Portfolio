@@ -1,0 +1,38 @@
+---
+title: Homepage
+---
+
+import { Image } from "@heroui/image";
+
+# Howdy, I'm Jeffrey!
+
+I'm a student at Tarleton State University (Bleed Purple!), pursuing an Electrical Engineering B.S., with a minor in Computer Science.
+
+<Image isBlurred className="m-5" alt="2024 TSU Bonfire" src="/bonfire-24.jpg"/>
+
+---
+
+import { Cards } from 'nextra/components'
+
+<Cards>
+<Cards.Card title="GitHub" href="https://www.github.com/daflamingfox" icon={
+    <div>
+        <img src="/github-light.svg" className="block dark:hidden w-10 h-10" />
+        <img src="/github-dark.svg" className="hidden dark:block w-10 h-10"/>
+    </div>
+}
+/>
+<Cards.Card title="LinkedIn" href="https://www.linkedin.com/in/jeffrey-morris-60729a309" icon ={
+    <div>
+        <img src="/linkedIn.svg" className="w-10 h-10"/>
+    </div>
+}
+/>
+<Cards.Card title="Email" href="mailto:ffejcsirrom@gmail.com?subject=Hi%20Jeffrey!" icon={
+    <div>
+        <img src="/mail-light.svg" className="block dark:hidden w-10 h-10" />
+        <img src="/mail-dark.svg" className="hidden dark:block w-10 h-10"/>
+    </div>
+}
+/>
+</Cards>
