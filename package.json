@@ -10,14 +10,13 @@
   },
   "dependencies": {
     "@heroui/react": "2.8.0-beta.11",
-    "@next/font": "^14.2.15",
     "framer-motion": "^12.23.0",
-    "next": "15.3.4",
+    "next": "15.3.5",
     "next-svgr": "^0.0.2",
     "nextra": "^4.2.17",
     "nextra-theme-docs": "^4.2.17",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
