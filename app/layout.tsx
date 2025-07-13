@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/next"
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
-import { Banner, Head, Search } from 'nextra/components'
+import { /*Banner,*/ Head, Search } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import { Providers } from "./providers";
 import { Lato } from 'next/font/google'
