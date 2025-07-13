@@ -1,0 +1,41 @@
+---
+title: Contact Me
+description: Methods for getting in touch with Jeffrey.
+---
+
+import { Cards } from 'nextra/components'
+import { Alert } from "@heroui/alert";
+
+# Contact Me
+
+Hi! Feel free to talk or connect with me via any of the methods below:
+
+<Alert color='default' className='w-full flex items-center my-3'>
+[**Email**](mailto:ffejcsirrom@gmail.com) is the fastest and most professional way to contact me.
+</Alert>
+
+
+<Cards>
+<Cards.Card title="Email" href="mailto:ffejcsirrom@gmail.com" icon={
+    <div>
+        <img src="/mail-light.svg" className="block dark:hidden w-10 h-10" />
+        <img src="/mail-dark.svg" className="hidden dark:block w-10 h-10"/>
+    </div>
+}/>
+<Cards.Card title="GitHub" href="https://www.github.com/daflamingfox" icon={
+    <div>
+        <img src="/github-light.svg" className="block dark:hidden w-10 h-10" />
+        <img src="/github-dark.svg" className="hidden dark:block w-10 h-10"/>
+    </div>
+}/>
+<Cards.Card title="LinkedIn" href="https://www.linkedin.com/in/jeffrey-morris-60729a309" icon ={
+    <div>
+        <img src="/linkedIn.svg" className="w-10 h-10"/>
+    </div>
+}/>
+<Cards.Card title="Discord - @daflamingfox" href="https://discord.com/channels/@me" icon ={
+    <div>
+        <img src="/discord.svg" className="w-10 h-10"/>
+    </div>
+}/>
+</Cards>

@@ -12,6 +12,8 @@ export default {
     },
     resume: {
         type: 'page',
-        title: 'Résumé'
+    },
+    contact_me: {
+        type: 'page',
     }
 }
