@@ -2,11 +2,12 @@ import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Banner, Head, Search } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import { Providers } from "./providers";
-import { Noto_Sans } from 'next/font/google'
+import { Lato } from 'next/font/google'
 import '@/app/globals.css'
 import 'nextra-theme-docs/style.css'
 
-const notoSans = Noto_Sans({
+const font = Lato({
+  weight: ['100', '300', '400', '700', '900'],
   subsets: ['latin']
 });
 
@@ -26,7 +27,7 @@ const search = <Search placeholder='Search...'/>;
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr" className={notoSans.className} suppressHydrationWarning>
+    <html lang="en" dir="ltr" className={font.className} suppressHydrationWarning>
       <Head
         color={{
           hue: 282,
