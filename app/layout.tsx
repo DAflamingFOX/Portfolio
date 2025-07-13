@@ -18,7 +18,8 @@ const meta = {
   image: '/capybara_gradient.png'
 }
 
-const banner = <Banner storageKey="construction-7-2-25" dismissible={false}>🚧 Site is currently under construction! 🚧</Banner>
+// Create a new banner const with a new storage key and uncomment the banner prop further down.
+// const banner = <Banner storageKey="construction-7-2-25" dismissible={false}>🚧 Site is currently under construction! 🚧</Banner>
 
 const navbar = <Navbar logo={<strong>Jeffrey Morris</strong>} />
 
@@ -53,7 +54,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
 
         <Layout
-          banner={banner}
+          // banner={banner} // Uncomment to enable banner.
           navbar={navbar}
           pageMap={await getPageMap()}
           footer={footer}
@@ -62,9 +63,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           search={search}>
           <Providers>
             {children}
+            <Analytics/>
           </Providers>
         </Layout>
-        <Analytics/>
       </body>
     </html>
   )
