@@ -9,9 +9,11 @@ export function ContactForm() {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const form = event.currentTarget;
+
         setIsProcessing(true);
 
-        const formData = new FormData(event.currentTarget);
+        const formData = new FormData(form);
         formData.append("access_key", "7d64eb7a-5b25-453a-ac52-1d330567a1b8");
 
         try {
@@ -25,7 +27,7 @@ export function ContactForm() {
 
             if (data.success) {
                 setResult('success')
-                event.currentTarget.reset()
+                form.reset()
             } else {
                 console.log("Error", data);
             }
