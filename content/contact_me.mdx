@@ -5,15 +5,15 @@ description: Methods for getting in touch with Jeffrey.
 
 import { Cards } from 'nextra/components'
 import { Alert } from "@heroui/alert";
+import { ContactForm } from '../components/ContactForm'
 
 # Contact Me
 
-Hi! Feel free to talk or connect with me via any of the methods below:
+Fill out the form below to send me an email directly, or check out some of my socials below!
 
-<Alert color='default' className='w-full flex items-center my-3'>
-[**Email**](mailto:ffejcsirrom@gmail.com) is the fastest and most professional way to contact me.
-</Alert>
+<ContactForm/>
 
+---
 
 <Cards>
 <Cards.Card title="Email" href="mailto:ffejcsirrom@gmail.com" icon={
@@ -33,7 +33,7 @@ Hi! Feel free to talk or connect with me via any of the methods below:
         <img src="/linkedIn.svg" className="w-10 h-10"/>
     </div>
 }/>
-<Cards.Card title="Discord - @daflamingfox" href="https://discord.com/channels/@me" icon ={
+<Cards.Card title="@daflamingfox" href="https://discord.com/channels/@me" icon ={
     <div>
         <img src="/discord.svg" className="w-10 h-10"/>
     </div>
