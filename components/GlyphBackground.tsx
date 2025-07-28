@@ -6,16 +6,24 @@ import monocraft from "@/app/fonts/monocraft";
 const GLYPHS = "".split("");
 const MAX_LIFESPAN_MS = 10000;
 const MIN_LIFESPAN_MS = 3000;
-const MAX_SPEED = 2.5;
+const MAX_SPEED = 5;
 const MIN_SPEED = 0.25;
+const FRICTION = 0.005;
+const CHANGE_GLYPH_CHANCE = 0.03;
 const MAX_GLYPHS = 150;
 const GLYPH_COLORS = [
-    { color: '#FFFF55', percentage: 0.1 },
-    { color: '#00AA00', percentage: 0.1 },
-    { color: '#FF5555', percentage: 0.1 },
-    { color: '#FFAA00', percentage: 0.1 },
-    { color: '#5555FF', percentage: 0.1 },
     { color: 'var(--foreground)', percentage: 0.5 },
+    { color: '#0000AA', percentage: 0.5 / 11 },
+    { color: '#00AA00', percentage: 0.5 / 11 },
+    { color: '#00AAAA', percentage: 0.5 / 11 },
+    { color: '#AA0000', percentage: 0.5 / 11 },
+    { color: '#AA00AA', percentage: 0.5 / 11 },
+    { color: '#FFAA00', percentage: 0.5 / 11 },
+    { color: '#55FF55', percentage: 0.5 / 11 },
+    { color: '#55FFFF', percentage: 0.5 / 11 },
+    { color: '#FF5555', percentage: 0.5 / 11 },
+    { color: '#FF55FF', percentage: 0.5 / 11 },
+    { color: '#FFFF55', percentage: 0.5 / 11 },
 ];
 
 type GlyphEntity = {
@@ -102,9 +110,11 @@ export function GlyphBackground() {
                         const dx = Math.cos(g.angle) * g.speed;
                         const dy = Math.sin(g.angle) * g.speed;
 
+                        const speed = (1 - FRICTION) * g.speed;
+
                         // Change glyph randomly
-                        const shouldChange = Math.random() < 0.05;
-                        const newChar = shouldChange
+                        const shouldChange = Math.random() < CHANGE_GLYPH_CHANCE;
+                        const char = shouldChange
                             ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
                             : g.char;
 
@@ -112,7 +122,8 @@ export function GlyphBackground() {
                             ...g,
                             x: g.x + dx,
                             y: g.y + dy,
-                            char: newChar,
+                            speed,
+                            char,
                             life: (now - g.birth) / g.lifespan,
                         };
                     })
@@ -138,7 +149,6 @@ export function GlyphBackground() {
 
     return (
         <>
-            <p>There are {glyphs.length} glyphs</p>
             <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none">
                 {glyphs.map((glyph) => (
                     <span

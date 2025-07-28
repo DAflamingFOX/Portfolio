@@ -168,8 +168,8 @@ export function AbtMeAniText() {
 
     return (
         <>
-            <div className="p-2 rounded-xl backdrop-blur-xs">
-                <h1 className={`text-3xl text-bold text-[#AA00AA] ${monocraft.className}`}>
+            <div className="p-1 rounded-xl">
+                <h1 className={`text-3xl text-bold text-[#AA00AA] text-shadow-lg ${monocraft.className}`}>
                     {displayText.join('')}
                 </h1>
             </div>
