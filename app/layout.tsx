@@ -8,11 +8,11 @@ const font = Lato({
   subsets: ['latin']
 });
 
-const meta = {
-  title: 'Jeffrey Morris',
-  description: 'Jeffrey Morris\' portfolio and blog.',
-  image: '/capybara_gradient.png'
-}
+// const meta = {
+//   title: 'Jeffrey Morris',
+//   description: 'Jeffrey Morris\' portfolio and blog.',
+//   image: '/capybara_gradient.png'
+// }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
