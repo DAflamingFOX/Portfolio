@@ -138,7 +138,7 @@ export function AbtMeAniText() {
         // PHASE 5: TRANSITION - match the new phrase's length
         if (phase === 'transition') {
             const nextPhrase = phrases[(phraseIndex + 1) % phrases.length];
-            let updated = [...displayText];
+            const updated = [...displayText];
 
             interval = setInterval(() => {
                 if (updated.length === nextPhrase.length) {
