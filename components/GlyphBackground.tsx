@@ -33,10 +33,12 @@ type GlyphEntity = {
     y: number;
     angle: number;
     speed: number;
+    originalSpeed: number;
     life: number; // 0 to 1
     lifespan: number;
-    birth: number; // timestamp
+    birth: number;
     color: string;
+    distanceToCenter: number;
 };
 
 function getWeightedRandomColor() {
@@ -46,7 +48,7 @@ function getWeightedRandomColor() {
         acc += percentage;
         if (r < acc) return color;
     }
-    return GLYPH_COLORS[0].color; // fallback
+    return GLYPH_COLORS[0].color;
 }
 
 export function GlyphBackground() {
@@ -54,7 +56,6 @@ export function GlyphBackground() {
     const [glyphs, setGlyphs] = useState<GlyphEntity[]>([]);
     const nextIndex = useRef(0);
 
-    // Add new glyphs at intervals
     useEffect(() => {
         const spawnInterval = setInterval(() => {
             const rect = containerRef.current?.getBoundingClientRect();
@@ -63,14 +64,23 @@ export function GlyphBackground() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const angle = Math.random() * 2 * Math.PI;
-            const offset = 50 + Math.random() * 20;
+            // Choose random edge spawn
+            const side = Math.floor(Math.random() * 4);
+            let x = 0, y = 0;
 
-            const x = centerX + Math.cos(angle) * offset;
-            const y = centerY + Math.sin(angle) * offset;
+            switch (side) {
+                case 0: x = Math.random() * rect.width; y = 0; break; // top
+                case 1: x = rect.width; y = Math.random() * rect.height; break; // right
+                case 2: x = Math.random() * rect.width; y = rect.height; break; // bottom
+                case 3: x = 0; y = Math.random() * rect.height; break; // left
+            }
 
-            const speed = Math.random() * (MAX_SPEED - MIN_SPEED + 1) + MIN_SPEED; // pixels/frame
-            const lifespan = Math.random() * (MAX_LIFESPAN_MS - MIN_LIFESPAN_MS + 1) + MIN_LIFESPAN_MS;
+            const dx = centerX - x;
+            const dy = centerY - y;
+            const distanceToCenter = Math.hypot(dx, dy);
+            const angle = Math.atan2(dy, dx);
+            const speed = Math.random() * (MAX_SPEED - MIN_SPEED) + MIN_SPEED;
+            const lifespan = Math.random() * (MAX_LIFESPAN_MS - MIN_LIFESPAN_MS) + MIN_LIFESPAN_MS;
             const char = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
 
             setGlyphs((prev) => {
@@ -81,16 +91,16 @@ export function GlyphBackground() {
                     y,
                     angle,
                     speed,
+                    originalSpeed: speed,
                     life: 0,
                     lifespan,
                     birth: performance.now(),
                     color: getWeightedRandomColor(),
+                    distanceToCenter,
                 };
 
                 const next = [...prev, newGlyph];
-
-                // Keep only the last MAX_GLYPHS
-                return next.length > MAX_GLYPHS ? next.slice(0, MAX_GLYPHS) : next;
+                return next.length > MAX_GLYPHS ? next.slice(next.length - MAX_GLYPHS) : next;
             });
 
         }, 25);
@@ -98,7 +108,6 @@ export function GlyphBackground() {
         return () => clearInterval(spawnInterval);
     }, []);
 
-    // Animate glyphs
     useEffect(() => {
         let animId: number;
 
@@ -109,35 +118,32 @@ export function GlyphBackground() {
                     .map((g) => {
                         const dx = Math.cos(g.angle) * g.speed;
                         const dy = Math.sin(g.angle) * g.speed;
+                        const speed = g.speed * (1 - FRICTION);
 
-                        const speed = (1 - FRICTION) * g.speed;
+                        const newX = g.x + dx;
+                        const newY = g.y + dy;
 
-                        // Change glyph randomly
-                        const shouldChange = Math.random() < CHANGE_GLYPH_CHANCE;
-                        const char = shouldChange
-                            ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
-                            : g.char;
+                        const distanceToCenter = Math.hypot(
+                            window.innerWidth / 2 - newX,
+                            window.innerHeight / 2 - newY
+                        );
+
+                        const timeAlive = now - g.birth;
+                        const life = timeAlive / g.lifespan;
 
                         return {
                             ...g,
-                            x: g.x + dx,
-                            y: g.y + dy,
+                            x: newX,
+                            y: newY,
                             speed,
-                            char,
-                            life: (now - g.birth) / g.lifespan,
+                            char: Math.random() < CHANGE_GLYPH_CHANCE
+                                ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
+                                : g.char,
+                            life,
+                            distanceToCenter,
                         };
                     })
-                    .filter((g) => {
-                        const offScreen =
-                            g.x < 50 ||
-                            g.x > window.innerWidth - 50 ||
-                            g.y < -50 ||
-                            g.y > window.innerHeight - 50;
-
-                        // Remove old glyphs and glyphs that have gone off-screen
-                        console.log(g.lifespan);
-                        return g.life < 1 && !offScreen;
-                    })
+                    .filter((g) => g.distanceToCenter > 30 && g.life < 1) // Remove if near center or expired
             );
 
             animId = requestAnimationFrame(update);
@@ -148,9 +154,13 @@ export function GlyphBackground() {
     }, []);
 
     return (
-        <>
-            <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none">
-                {glyphs.map((glyph) => (
+        <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none">
+            {glyphs.map((glyph) => {
+                const fadeOutStartDistance = 100; // px from center
+                const fadeRatio = Math.min(1, glyph.distanceToCenter / fadeOutStartDistance);
+                const fadeIn = glyph.life < 0.2 ? glyph.life * 5 : 1;
+
+                return (
                     <span
                         key={glyph.index}
                         className={monocraft.className}
@@ -161,9 +171,7 @@ export function GlyphBackground() {
                             top: glyph.y,
                             transform: "translate(-50%, -50%)",
                             fontSize: "18px",
-                            opacity: glyph.life < 0.2
-                                ? glyph.life * 5 // fade in
-                                : 1 - (glyph.life - 0.2), // fade out after
+                            opacity: Math.min(fadeIn, fadeRatio),
                             transition: "opacity 0.1s linear",
                             pointerEvents: "none",
                             willChange: 'transform, opacity',
@@ -171,8 +179,8 @@ export function GlyphBackground() {
                     >
                         {glyph.char}
                     </span>
-                ))}
-            </div>
-        </>
+                );
+            })}
+        </div>
     );
-};
+}

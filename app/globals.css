@@ -1,34 +1,58 @@
 @import "tailwindcss";
+
+@config "../tailwind.config.js";
+
 @plugin "../hero.ts";
 
-@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme {
-  --color-background: #ffffff;
-  --color-foreground: #171717;
-  --color-brandPurp: #8e44adff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0e1012;
-    --foreground: #ededed;
-  }
+  --background: #ededed;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
 .dark {
-  --background: #0e1012;
   --foreground: #ededed;
+  --background: #171717;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-brandPurp: #8e44adff;
+}
+
+h1 {
+  @apply font-bold mt-2 text-4xl;
+}
+
+h2 {
+  @apply font-semibold mt-10  pb-1 text-3xl
+}
+
+h3 {
+  @apply font-semibold mt-8 text-2xl
+}
+
+h4 {
+  @apply font-semibold mt-8 text-xl
+}
+
+h5 {
+  @apply font-semibold mt-8 text-lg
+}
+
+h6 {
+  @apply font-semibold mt-8 text-base
+}
+
+p {
+  @apply leading-8
+}
+
+a {
+  @apply no-underline hover:underline
 }

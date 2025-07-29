@@ -1,5 +1,9 @@
+// 'use client';
+
 import { Analytics } from "@vercel/analytics/next"
-import { Providers } from "./providers";
+import { ThemeProvider } from "./ThemeProvider";
+import { Navigation } from '@/components/Navigation'
+import { Providers as HeroUIProvider } from "./providers";
 import { Lato } from 'next/font/google'
 import '@/app/globals.css'
 
@@ -14,14 +18,18 @@ const font = Lato({
 //   image: '/capybara_gradient.png'
 // }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="en" dir="ltr" className={font.className} suppressHydrationWarning>
       <body>
-        <Providers>
-          {children}
-          <Analytics/>
-        </Providers>
+        <ThemeProvider>
+          <HeroUIProvider>
+            <Navigation />
+            {children}
+            <Analytics />
+          </HeroUIProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

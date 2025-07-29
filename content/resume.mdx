@@ -4,6 +4,12 @@ description: Current and past résumé files.
 ---
 
 import { ResumeViewer } from '../components/ResumeViewer'
+import { Alert } from "@heroui/alert";
+
+
+# Reference Letters
+
+<Alert className='mt-4' title="For the sake of my referrer's privacy: reference letters are only available upon request." description={<>Feel free to <a>contact me</a> for them.</>}/>
 
 # Résumés
 
@@ -11,5 +17,6 @@ Below is a list of my current and past résumés, they should preview in the bro
 by pressing "Download" below each title for the respective pdf.
 
 ---
+
 { /* To update the resume list and add more resumes just add the path to components/ResumeViewer.tsx */ }
 <ResumeViewer/>

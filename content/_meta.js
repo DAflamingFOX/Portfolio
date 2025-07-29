@@ -1,13 +1,19 @@
 export default {
-    'index': {
-        title: 'Home',
-        theme: {
-            breadcrumb: false,
-            sidebar: false,
-            toc: false,
-            pagination: true
-        }
-    },
+    // 'index': {
+    //     title: 'Home',
+    //     theme: {
+    //         breadcrumb: false,
+    //         sidebar: false,
+    //         toc: false,
+    //         pagination: true
+    //     }
+    // },
+    // 'demo': {
+    //     title: 'Demo',
+    //     theme: {
+    //         sidebar: true
+    //     }
+    // },
     portfolio: {
         theme: {
             breadcrumb: false,
