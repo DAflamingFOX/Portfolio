@@ -130,6 +130,7 @@ export function SpiralCanvasGlyphs() {
             spawnInterval.current = setInterval(spawnGlyph, 0.01);
             animationFrame.current = requestAnimationFrame(draw);
         });
+
         const handleResize = () => {
             width = window.innerWidth;
             height = window.innerHeight;

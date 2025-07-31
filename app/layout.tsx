@@ -25,9 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider>
           <HeroUIProvider>
-            <Navigation />
-            {children}
-            <Analytics />
+            <main className="text-foreground bg-background">
+              <Analytics />
+              <Navigation />
+              {children}
+            </main>
           </HeroUIProvider>
         </ThemeProvider>
       </body>

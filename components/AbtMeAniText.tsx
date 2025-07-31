@@ -37,7 +37,7 @@ const shuffleArray = (arr: number[]) => {
 const getRandomIndex = (length: number) =>
     Math.floor(Math.random() * (length + 1));
 
-export function AbtMeAniText() {
+const AbtMeAniText = React.forwardRef<HTMLDivElement>((_props, ref) => {
     const [displayText, setDisplayText] = useState<string[]>([]);
     const [phraseIndex, setPhraseIndex] = useState(0);
     const [phase, setPhase] = useState<Phase>('empty');
@@ -168,11 +168,14 @@ export function AbtMeAniText() {
 
     return (
         <>
-            <div className="p-1 rounded-xl">
-                <h1 className={`text-3xl text-bold text-[#AA00AA] text-shadow-lg ${monocraft.className}`}>
+            <div ref={ref} className="pt-3 pb-6 pl-6 pr-3 rounded-xl">
+                <p className={`text-5xl text-bold text-foreground text-shadow-lg ${monocraft.className}`}>
                     {displayText.join('')}
-                </h1>
+                </p>
             </div>
         </>
     );
-};
+});
+
+AbtMeAniText.displayName = 'AbtMeAniText';
+export default AbtMeAniText;
