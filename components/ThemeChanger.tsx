@@ -48,7 +48,6 @@ export function ThemeChanger() {
 
     return (
         <Switch
-            defaultValue={theme}
             color="primary"
             size="md"
             startContent={<SunIcon />}

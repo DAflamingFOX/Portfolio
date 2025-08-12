@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from "react";
-import monocraft from "@/app/fonts/monocraft";
+import { monocraft } from '@/app/styles/fonts';
 import { handler } from "next/dist/build/templates/app-page";
 import { Glyph } from "./Glyph";
 import { twinkle, FlyOut as flyOut } from "./GlyphAnimations"

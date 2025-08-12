@@ -1,10 +1,13 @@
 'use client';
 
+import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@heroui/react";
 import { usePathname } from 'next/navigation';
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@heroui/react";
+import { useState } from 'react';
 import { ThemeChanger } from './ThemeChanger';
 
 export function Navigation() {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
         { name: 'Portfolio', href: '/portfolio' },
@@ -15,29 +18,48 @@ export function Navigation() {
     const pathname = usePathname();
 
     return (
-        <Navbar shouldHideOnScroll isBlurred>
-            <NavbarBrand>
-                <Link href="/" color="foreground">
-                    <p className="font-bold text-inherit">Jeffrey Morris</p>
-                </Link>
-            </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <Navbar shouldHideOnScroll isBlurred onMenuOpenChange={setIsMenuOpen}>
+            <NavbarMenuToggle
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                className="sm:hidden"
+            />
+            <NavbarMenu>
                 {
                     navItems.map((item) => {
                         const isCurrent = pathname === item.href;
-
                         return (
-                            <NavbarItem key={item.name} aria-current={isCurrent}>
-                                <Link href={item.href} color={isCurrent ? "primary" : "foreground"}>
+                            <NavbarMenuItem key={item.name}>
+                                <Link href={item.href} color={isCurrent ? 'primary' : 'foreground'}>
                                     {item.name}
                                 </Link>
+                            </NavbarMenuItem>
+                        );
+                    })
+                }
+            </NavbarMenu>
+            <NavbarBrand>
+                <Link href="/" color="foreground">
+                    <h6 className="font-bold text-inherit">Jeffrey Morris</h6>
+                </Link>
+            </NavbarBrand>
+            <NavbarContent className="hidden sm:flex gap-4 font-medium" justify="center">
+                {
+                    navItems.map((item) => {
+                        const isCurrent = pathname === item.href;
+                        return (
+                            <NavbarItem key={item.name} aria-current={isCurrent}>
+                                <h6>
+                                    <Link href={item.href} color={isCurrent ? 'primary' : "foreground"}>
+                                        {item.name}
+                                    </Link>
+                                </h6>
                             </NavbarItem>
                         );
                     })
                 }
             </NavbarContent>
             <NavbarContent justify='end'>
-                <ThemeChanger/>
+                <ThemeChanger />
             </NavbarContent>
         </Navbar>
     );

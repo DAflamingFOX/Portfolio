@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@config "../../tailwind.config.js";
+
+@plugin "../../hero.ts";
+
+@source "../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "formaDJR";
+  src: url("./FormaDJR/FormaDJRVariable[opsz\,slnt\,wdth\,wght]-Edu.ttf");
+  /* Alot of the font features, ss03, ss04, ss05, ss07, ss09, ss10 only enable at the smallest optical size of 8 (this is automatic) */
+  font-feature-settings: "calt", "liga", "rlig", "rvrn", "kern", "rclt", "ss01", "ss02", "ss08";
+}
+
+:root {
+  font-family: 'formaDJR', 'lato', Arial, Helvetica, sans-serif;
+}
+
+.content {
+  @apply max-w-xs md:max-w-xl lg:max-w-3xl mx-auto mb-2
+}
+
+h1 {
+  @apply font-bold mt-2 text-4xl;
+  font-variation-settings: "opsz" 36;
+}
+
+h2 {
+  @apply font-semibold mt-2 text-3xl;
+  font-variation-settings: "opsz" 30;
+}
+
+h3 {
+  @apply font-semibold text-2xl;
+  font-variation-settings: "opsz" 24;
+}
+
+h4 {
+  @apply font-semibold mt-2 text-xl;
+  font-variation-settings: "opsz" 20;
+}
+
+h5 {
+  @apply font-semibold mt-2 text-lg;
+  font-variation-settings: "opsz" 18;
+}
+
+h6 {
+  @apply font-semibold mt-2 text-base;
+  font-variation-settings: "opsz" 16;
+}
+
+p {
+  @apply leading-6 text-base;
+  font-variation-settings: 'opsz' 16, 'wght' 450;
+}
+
+a {
+  @apply no-underline hover:underline
+}

@@ -9,11 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroui/react": "2.8.0-beta.11",
+    "@heroui/react": "^2.8.2",
     "@heroui/use-theme": "^2.1.10",
-    "@mdx-js/loader": "^3.1.0",
-    "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "^15.4.4",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.23.11",
@@ -21,8 +18,7 @@
     "next-svgr": "^0.0.2",
     "next-themes": "^0.4.6",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "remark-gfm": "^4.0.1"
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

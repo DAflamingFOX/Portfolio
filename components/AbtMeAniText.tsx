@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import monocraft from '@/app/fonts/monocraft';
+import { monocraft } from '@/app/styles/fonts';
 
 const galactic_alphabet = '';
 
