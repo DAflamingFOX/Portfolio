@@ -13,7 +13,7 @@ export default function Page() {
             <ResumeList />
             <KnockoutHeadingDivider lines={0} text="References" className="my-2"/>
             <div className="font-medium">
-                <p>For the sake of my referrer's privacy, reference letters are only available upon request.</p>
+                <p>{`For the sake of my referrer's privacy, reference letters are only available upon request.`}</p>
                 <p>Feel free to <Link href="/contact_me">contact me</Link> if you would like a copy.</p>
             </div>
         </div>

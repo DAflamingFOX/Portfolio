@@ -1,8 +1,7 @@
 'use client';
 
 import { ContactForm } from "@/components/ContactForm";
-import { Divider, User, Link, Image } from "@heroui/react";
-// import { formaDJR } from "../styles/fonts";
+import { Divider, Link } from "@heroui/react";
 import KnockoutHeadingDivider from "@/components/KnockoutHeadingDivider";
 
 export default function Page() {
@@ -12,11 +11,10 @@ export default function Page() {
                 <h1>Contact Me</h1>
                 <KnockoutHeadingDivider lines={3} text="Let's chat" />
                 <div className=" my-4 flex flex-col lg:flex-row justify-between gap-y-4">
-                    {/* <div className="flex justify-between my-4"> */}
                     <div className={`mr-4`}>
-                        <p>I'm always looking for new opportunties to grow and flex my skills.</p>
+                        <p>{`I'm always looking for new opportunties to grow and flex my skills.`}</p>
                         <br />
-                        <p>Fill out the form to reach out to me and let's see what we can cook up!</p>
+                        <p>{`Fill out the form to reach out to me and let's see what we can cook up!`}</p>
                     </div>
                     <ContactForm className='flex-grow' />
                 </div>

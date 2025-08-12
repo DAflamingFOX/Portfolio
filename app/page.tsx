@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { delay, easeIn, easeInOut, motion, MotionConfig, useAnimation } from 'framer-motion';
+import { easeInOut, motion, MotionConfig, useAnimation } from 'framer-motion';
 import { Image, Link } from '@heroui/react';
 
 export default function Page() {
@@ -29,12 +29,12 @@ export default function Page() {
     };
 
     const lines = [
-        "I'm a student",
-        "I'm an electrical engineer",
-        "I'm an embeded software engineer",
-        "I'm a robotics enthusiast",
-        "Check me out:",
-        <div className='inline-flex flex-row gap-x-4'>
+        <h3 key={'student'}>{"I'm a student"}</h3>,
+        <h3 key={'ee'}>{"I'm an electrical engineer"}</h3>,
+        <h3 key={'ese'}>{"I'm an embeded software engineer"}</h3>,
+        <h3 key={'robot'}>{"I'm a robotics enthusiast"}</h3>,
+        <h3 key={'action'}>{"Check me out:"}</h3>,
+        <div key={'links'}  className='inline-flex flex-row gap-x-4'>
             <Link className='text-2xl' href="/portfolio"> Portfolio </Link>
             <Link className='text-2xl' href="/resume"> Resume </Link>
             <Link className='text-2xl' href="/contact_me"> Contact Me </Link>
@@ -58,7 +58,7 @@ export default function Page() {
             window.addEventListener("load", startAnimation);
             return () => window.removeEventListener("load", startAnimation);
         }
-    }, [barControls, textControls, imgControls]);
+    }, [barControls, textControls, imgControls, linesControls]);
 
 
     return (
@@ -94,7 +94,7 @@ export default function Page() {
                                     }}
                                     animate={textControls}
                                 >
-                                    Howdy, I'm Jeffrey
+                                    {`Howdy, I'm Jeffrey`}
                                 </motion.div>
                             </div>
 
@@ -107,12 +107,12 @@ export default function Page() {
                             >
                                 {lines.map((text, i) => (
                                     <div key={i} className='overflow-hidden'>
-                                        <motion.h3
+                                        <motion.div
                                             className='inline-block'
                                             variants={lineVariants}
                                         >
                                             {text}
-                                        </motion.h3>
+                                        </motion.div>
                                     </div>
                                 ))}
                             </motion.div>
@@ -129,7 +129,7 @@ export default function Page() {
                             }}
                             animate={imgControls}
                         >
-                            <Image src='/Headshot_States_Up.jpg' />
+                            <Image src='/Headshot_States_Up.jpg' alt='Headshot' />
                         </motion.div>
                     </div>
 

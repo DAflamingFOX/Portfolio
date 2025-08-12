@@ -17,8 +17,8 @@ const luminaXDesc = <>
 
 const luminaXImgs = <>
     <div className="flex flex-col justify-around">
-        <Image isZoomed src='/portfolio/luminax_front.png' />
-        <Image isZoomed src='/portfolio/luminax_back.png' />
+        <Image isZoomed src='/portfolio/luminax_front.png' alt='luminax front' />
+        <Image isZoomed src='/portfolio/luminax_back.png' alt='luminax back' />
     </div>
 </>;
 
@@ -38,7 +38,7 @@ const rangerDesc = <>
 
 const rangerImgs = <>
     <div className="flex flex-col justify-center">
-        <Image isZoomed src="/portfolio/ranger.png" />
+        <Image isZoomed src="/portfolio/ranger.png" alt='ranger' />
     </div>
 </>
 
@@ -56,8 +56,8 @@ const cannectDesc = <>
 
 const cannectImgs = <>
     <div className="flex flex-col justify-around items-center gap-y-4">
-        <Image className="max-h-50" isZoomed src="/portfolio/cannect_direct_back.png" />
-        <Image isZoomed src="/portfolio/cannect.png" />
+        <Image className="max-h-50" isZoomed src="/portfolio/cannect_direct_back.png" alt='cannect back' />
+        <Image isZoomed src="/portfolio/cannect.png" alt='cannect group' />
     </div>
 </>;
 
@@ -69,16 +69,16 @@ const einDesc = <>
         Ein made it all the way to the FIRST in Texas District Championship - which is the farthest the team has ever gone to-date.
     </p>
     <p>
-        Ein was our first "command-based" robot meaning the robot operates essentially from a giant state-machine with many interconnected
-        subsystems.
+        {`Ein was our first "command-based" robot meaning the robot operates essentially from a giant state-machine with many interconnected
+        subsystems.`}
     </p>
     <p>
-        You can view Ein's source code <Link isExternal showAnchorIcon href="https://github.com/Tigerbotics7125/FRC2022/tree/main">here.</Link>
+        {`You can view Ein's source code `}<Link isExternal showAnchorIcon href="https://github.com/Tigerbotics7125/FRC2022/tree/main">here.</Link>
     </p>
 </>;
 
 const einImgs = <>
-    <Image isZoomed src="/portfolio/Ein_2022.jpg" />
+    <Image isZoomed src="/portfolio/Ein_2022.jpg" alt='Ein' />
 </>;
 
 const killuaDesc = <>
@@ -92,17 +92,17 @@ const killuaDesc = <>
         Killua was likely our most advanced robot to-date and such has large amounts of routines and automations to control the actions of it.
     </p>
     <p>
-        Killua is also a "command-based" robot. The robot continuously runs finely-tuned profiled PID controllers on all 3 degrees of freedom - the elevator, arm, and wrist.
-        Killua is also able to automatically intake gamepieces using a current monitoring strategy.
+        {`Killua is also a "command-based" robot. The robot continuously runs finely-tuned profiled PID controllers on all 3 degrees of freedom - the elevator, arm, and wrist.
+        Killua is also able to automatically intake gamepieces using a current monitoring strategy.`}
     </p>
     <p>
-        Killua's source code is available <Link isExternal showAnchorIcon href="https://github.com/Tigerbotics7125/FRC2023/tree/main">here.</Link>
+        {`Killua's source code is available `}<Link isExternal showAnchorIcon href="https://github.com/Tigerbotics7125/FRC2023/tree/main">here.</Link>
     </p>
 </>;
 
 const killuaImgs = <>
     <div className="flex flex-col justify-center">
-        <Image isZoomed src="/portfolio/Killua_2023.jpg" />
+        <Image isZoomed src="/portfolio/Killua_2023.jpg" alt='Killua' />
     </div>
 </>;
 
