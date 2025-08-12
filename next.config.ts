@@ -1,11 +1,7 @@
-import nextra from 'nextra'
+/** @type {import('next').NextConfig} */
+const nextConfig = {
 
-// Set up Nextra with its configuration
-const withNextra = nextra({
-  // ... Add Nextra-specific options here
-})
+}
 
-// Export the final Next.js config with Nextra included
-export default withNextra({
-  // ... Add regular Next.js options here
-})
+// Merge MDX config with Next.js config
+export default nextConfig;
