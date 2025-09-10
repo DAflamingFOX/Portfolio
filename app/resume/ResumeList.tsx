@@ -12,6 +12,7 @@ const resumePath = '/resume';
 export function ResumeList() {
 
     const resumeList: Resume[] = [
+        { path: `${resumePath}/Resume_9-10-25.pdf`, title: 'Engineering Resume 9-10-25' },
         { path: `${resumePath}/Resume_7-11-25.pdf`, title: 'Generic Resume 7-11-25' },
         { path: `${resumePath}/Resume_1-4-24.pdf`, title: 'Generic Resume 1-4-24' }
     ]
