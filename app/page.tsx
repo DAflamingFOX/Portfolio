@@ -1,141 +1,62 @@
 'use client';
 
-import { useEffect } from 'react';
-import { easeInOut, motion, MotionConfig, useAnimation } from 'framer-motion';
-import { Image, Link } from '@heroui/react';
+import KnockoutHeadingDivider from "@/components/KnockoutHeadingDivider";
+import { Divider, Link } from "@heroui/react";
 
 export default function Page() {
-    const barControls = useAnimation();
-    const textControls = useAnimation();
-    const imgControls = useAnimation();
-    const linesControls = useAnimation();
-
-    const containerVariants = {
-        hidden: {},
-        complete: {
-            transition: {
-                staggerChildren: 0.75, // delay between lines
-            },
-        },
-    };
-
-    const lineVariants = {
-        hidden: { y: "100%", opacity: 0 },
-        complete: {
-            y: "0%",
-            opacity: 1,
-            transition: { duration: 1, easeInOut },
-        },
-    };
-
-    const lines = [
-        <h3 key={'student'}>{"I'm a student"}</h3>,
-        <h3 key={'ee'}>{"I'm an electrical engineer"}</h3>,
-        <h3 key={'ese'}>{"I'm an embeded software engineer"}</h3>,
-        <h3 key={'robot'}>{"I'm a robotics enthusiast"}</h3>,
-        <h3 key={'action'}>{"Check me out:"}</h3>,
-        <div key={'links'}  className='inline-flex flex-row gap-x-4'>
-            <Link className='text-2xl' href="/portfolio"> Portfolio </Link>
-            <Link className='text-2xl' href="/resume"> Resume </Link>
-            <Link className='text-2xl' href="/contact_me"> Contact Me </Link>
-        </div>,
-    ];
-
-    useEffect(() => {
-        const startAnimation = async () => {
-            barControls.start('complete');
-            await new Promise(r => setTimeout(r, 500));
-            textControls.start('complete');
-            await new Promise(r => setTimeout(r, 500));
-            imgControls.start('complete');
-            await new Promise(r => setTimeout(r, 500));
-            linesControls.start('complete');
-        }
-
-        if (document.readyState === "complete") {
-            startAnimation();
-        } else {
-            window.addEventListener("load", startAnimation);
-            return () => window.removeEventListener("load", startAnimation);
-        }
-    }, [barControls, textControls, imgControls, linesControls]);
-
-
     return (
         <>
-            <div className='content'>
-                <MotionConfig transition={{
-                    duration: 1.5,
-                    ease: 'easeInOut'
-                }}>
-                    <div className='flex flex-row gap-x-8 justify-between w-full'>
-                        <div className='inline-flex flex-col shrink-0 gap-y-8'>
-
-                            <div className="inline-flex flex-col items-start w-fit">
-                                {/* The Bar */}
-                                <motion.div
-                                    className="h-0.5 bg-foreground rounded-full origin-left w-full"
-                                    initial={{
-                                        scaleX: 0
-                                    }}
-                                    variants={{
-                                        complete: { scaleX: 1 }
-                                    }}
-                                    animate={barControls}
-                                />
-                                {/* My name */}
-                                <motion.div
-                                    className="mr-8 text-4xl font-bold"
-                                    initial={{
-                                        opacity: 0,
-                                    }}
-                                    variants={{
-                                        complete: { opacity: 1 }
-                                    }}
-                                    animate={textControls}
-                                >
-                                    {`Howdy, I'm Jeffrey`}
-                                </motion.div>
-                            </div>
-
-                            {/* Lines Container */}
-                            <motion.div
-                                variants={containerVariants}
-                                initial='hidden'
-                                animate={linesControls}
-                                className='flex flex-col gap-y-8'
-                            >
-                                {lines.map((text, i) => (
-                                    <div key={i} className='overflow-hidden'>
-                                        <motion.div
-                                            className='inline-block'
-                                            variants={lineVariants}
-                                        >
-                                            {text}
-                                        </motion.div>
-                                    </div>
-                                ))}
-                            </motion.div>
-
+            <div className="content">
+                <h1>Welcome</h1>
+                <KnockoutHeadingDivider lines={3} text="Howdy, I'm Jeffrey" />
+                <div className="my-4 flex flex-col gap-y-2 text-xl">
+                    {/* <div>
+                        <i>I'm actively looking for a <b>summer internship</b> or full-time job upon graduation.</i> <br />
+                    </div> */}
+                    <div>
+                        I&apos;m an <b>electrical engineering</b> major at Tarleton State University. <br />
+                    </div>
+                    <div>
+                        I design, build, and write firmware for <b>custom PCBs</b> (printed circuit boards). <br />
+                    </div>
+                    <div>
+                        I&apos;m a <b>FIRST alumni</b>, and robotics enthusiast.
+                    </div>
+                </div>
+                <KnockoutHeadingDivider lines={0} text="Learn more" />
+                <div>
+                    <div className="my-4 grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-6">
+                        <h3 className="text-right">Blog</h3>
+                        <Divider orientation="vertical" />
+                        <div className="flex flex-col justify-between h-auto">
+                            <p>Check out my random writings and other works. (coming soon)</p>
+                            <Link isDisabled showAnchorIcon href="/blog">Link</Link>
                         </div>
 
-                        <motion.div
-                            className='shrink'
-                            initial={{
-                                opacity: 0,
-                            }}
-                            variants={{
-                                complete: { opacity: 1 }
-                            }}
-                            animate={imgControls}
-                        >
-                            <Image src='/Headshot_States_Up.jpg' alt='Headshot' />
-                        </motion.div>
-                    </div>
+                        <h3 className="text-right">Portfolio</h3>
+                        <Divider orientation="vertical" />
+                        <div className="flex flex-col justify-between h-auto">
+                            <p>Showcase of my projects I&apos;ve done over the years.</p>
+                            <Link showAnchorIcon href="/portfolio">Link</Link>
+                        </div>
 
-                </MotionConfig>
+                        <h3 className="text-right">Resume</h3>
+                        <Divider orientation="vertical" />
+                        <div className="flex flex-col justify-between h-auto">
+                            <p>If you&apos;re a hiring manager you should go here.</p>
+                            <Link showAnchorIcon href="/resume">Link</Link>
+                        </div>
+
+                        <h3 className="text-right">Contact Me</h3>
+                        <Divider orientation="vertical" />
+                        <div className="flex flex-col justify-between h-auto">
+                            <p>If you want to connect with me or just reach out to me directly.</p>
+                            <Link showAnchorIcon href="/contact_me">Link</Link>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </>
-
     );
 }
