@@ -24,15 +24,8 @@ export default function Page() {
                     <h3 className="text-right">Email</h3>
                     <Divider orientation="vertical" />
                     <div className="flex flex-col justify-between h-15">
-                        <p>ffejcsirrom@gmail.com</p>
-                        <Link isExternal showAnchorIcon href="mailto:ffejcsirrom@gmail.com">Link</Link>
-                    </div>
-
-                    <h3 className="text-right">GitHub</h3>
-                    <Divider orientation="vertical" />
-                    <div className="flex flex-col justify-between h-15">
-                        <p>@DAflamingFOX</p>
-                        <Link isExternal showAnchorIcon href="https://github.com/daflamingfox">Link</Link>
+                        <p>Jeff@Jeffrey-m.com</p>
+                        <Link isExternal showAnchorIcon href="mailto:jeff@jeffrey-m.com">Link</Link>
                     </div>
 
                     <h3 className="text-right">LinkedIn</h3>
@@ -40,6 +33,13 @@ export default function Page() {
                     <div className="flex flex-col justify-between h-15">
                         <p>Jeffrey Morris</p>
                         <Link isExternal showAnchorIcon href="www.linkedin.com/in/jeffrey-morris-60729a309">Link</Link>
+                    </div>
+
+                    <h3 className="text-right">GitHub</h3>
+                    <Divider orientation="vertical" />
+                    <div className="flex flex-col justify-between h-15">
+                        <p>@DAflamingFOX</p>
+                        <Link isExternal showAnchorIcon href="https://github.com/daflamingfox">Link</Link>
                     </div>
 
                     <h3 className="text-right">Discord</h3>
