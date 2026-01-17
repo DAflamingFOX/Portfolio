@@ -2,65 +2,76 @@
 
 import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@heroui/react";
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { ThemeChanger } from './ThemeChanger';
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export function Navigation() {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const navItems = [
-        { name: 'Portfolio', href: '/portfolio' },
+    const leftNav = [
+        { name: 'Blog', href: '/blog' },
+        { name: 'Projects', href: '/projects' },
         { name: 'Resume', href: '/resume' },
-        { name: 'Contact Me', href: '/contact_me' }
     ];
+
+    const rightNav = [
+        { name: 'Contact', href: '/contact_me' }
+    ]
+
+    const navItems = [{ name: "Home", href: '/' }].concat(leftNav).concat(rightNav);
 
     const pathname = usePathname();
 
     return (
-        <Navbar shouldHideOnScroll isBlurred onMenuOpenChange={setIsMenuOpen}>
-            <NavbarMenuToggle
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className="sm:hidden"
-            />
-            <NavbarMenu>
-                {
-                    navItems.map((item) => {
-                        const isCurrent = pathname === item.href;
-                        return (
-                            <NavbarMenuItem key={item.name}>
-                                <Link href={item.href} color={isCurrent ? 'primary' : 'foreground'}>
-                                    {item.name}
-                                </Link>
-                            </NavbarMenuItem>
-                        );
-                    })
-                }
-            </NavbarMenu>
-            <NavbarBrand>
-                <Link href="/" color="foreground">
-                    <h6 className="font-bold text-inherit">Jeffrey Morris</h6>
+        <Navbar isBordered isBlurred={false} height={'2rem'} maxWidth="full" className="flex">
+            <NavbarBrand className="grow-0">
+                <Link href="/" color="foreground" className="font-bold text-lg">
+                    Jeffrey Morris
                 </Link>
             </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-4 font-medium" justify="center">
+
+            <NavbarContent justify="start" className="max-sm:hidden">
                 {
-                    navItems.map((item) => {
+                    leftNav.map((item) => {
                         const isCurrent = pathname === item.href;
                         return (
                             <NavbarItem key={item.name} aria-current={isCurrent}>
-                                <h6>
-                                    <Link href={item.href} color={isCurrent ? 'primary' : "foreground"}>
-                                        {item.name}
-                                    </Link>
-                                </h6>
+                                <Link href={item.href} color={isCurrent ? "primary" : "foreground"} >{item.name}</Link>
                             </NavbarItem>
                         );
                     })
                 }
             </NavbarContent>
-            <NavbarContent justify='end'>
-                <ThemeChanger />
+
+            <NavbarContent justify="end" className="max-sm:hidden">
+                {
+                    rightNav.map((item) => {
+                        const isCurrent = pathname === item.href;
+                        return (
+                            <NavbarItem key={item.name} aria-current={isCurrent}>
+                                <Link href={item.href} color={isCurrent ? "primary" : "foreground"} >{item.name}</Link>
+                            </NavbarItem>
+                        )
+                    })
+                }
             </NavbarContent>
+
+            <div className="flex justify-end grow min-sm:grow-0">
+                <ThemeSwitcher />
+            </div>
+
+            <NavbarMenuToggle className="min-sm:hidden" />
+
+            <NavbarMenu >
+                {
+                    navItems.map((item) => {
+                        const isCurrent = pathname === item.href;
+                        return (
+                            <NavbarMenuItem key={item.name}>
+                                <Link href={item.href} color={isCurrent ? 'primary' : 'foreground'}>{item.name}</Link>
+                            </NavbarMenuItem>
+                        );
+                    })
+                }
+            </NavbarMenu>
         </Navbar>
     );
 }
