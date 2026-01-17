@@ -2,8 +2,7 @@
 
 import { Analytics } from "@vercel/analytics/next";
 
-import { ThemeProvider } from "./ThemeProvider";
-import { Providers as HeroUIProvider } from "./providers";
+import { Providers } from "./providers";
 
 import { Navigation } from '@/components/Navigation';
 
@@ -21,19 +20,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <body>
-        <ThemeProvider>
-          <HeroUIProvider>
+          <Providers>
             <div className="flex flex-col min-h-screen min-w-screen">
               <Analytics />
               <Navigation />
               {/* min-h-[viewport - header height] This makes sure footer is just below the fold. */}
-              <div className="flex-grow h-full min-h-[calc(100vh-64px)]">
+            <div className="flex-grow h-full min-h-[calc(100vh-64px)]">
                 {children}
               </div>
              <Footer />
             </div>
-          </HeroUIProvider>
-        </ThemeProvider>
+          </Providers>
       </body>
     </html>
   );

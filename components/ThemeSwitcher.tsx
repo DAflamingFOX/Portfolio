@@ -1,9 +1,8 @@
 'use client';
 
-import { JSX, SVGProps } from 'react';
-import { useTheme } from '../app/ThemeProvider';
-
-import { Switch } from "@heroui/react";
+import { useTheme } from "next-themes";
+import { useEffect, useState, JSX, SVGProps } from "react";
+import { Button } from "@heroui/react";
 
 export const MoonIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => {
     return (
@@ -43,17 +42,32 @@ export const SunIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
     );
 };
 
-export function ThemeChanger() {
+export function ThemeSwitcher() {
+    const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
 
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) return null;
+
+
     return (
-        <Switch
-            color="primary"
-            size="md"
-            startContent={<SunIcon />}
-            endContent={<MoonIcon />}
-            onValueChange={(isSelected) => setTheme(isSelected ? 'light' : 'dark')}
-            value={theme}
-        />
-    );
-}
+        <Button isIconOnly size='sm' variant="light" onPress={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            className="p-0">
+            {theme === 'light' ? <SunIcon/> : <MoonIcon/>}
+        </Button>
+    )
+
+
+
+
+    // return (
+    //     <div>
+    //         The current theme is: {theme}
+    //         <button onClick={() => setTheme('light')}>Light Mode</button>
+    //         <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    //     </div>
+    // )
+};
