@@ -9,14 +9,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: "formaDJR";
-  src: url("./FormaDJR/FormaDJRVariable[opsz\,slnt\,wdth\,wght]-Edu.ttf");
-  /* Alot of the font features, ss03, ss04, ss05, ss07, ss09, ss10 only enable at the smallest optical size of 8 (this is automatic) */
-  font-feature-settings: "calt", "liga", "rlig", "rvrn", "kern", "rclt", "ss01", "ss02", "ss08";
+  font-family: "Lexend";
+  src: url("./Lexend/Lexend-VariableFont_wght.ttf");
 }
 
 :root {
-  font-family: 'formaDJR', 'lato', Arial, Helvetica, sans-serif;
+  font-family: 'Lexend', Arial, sans-serif;
 }
 
 .content {
@@ -25,17 +23,14 @@
 
 h1 {
   @apply font-bold mt-2 text-4xl;
-  font-variation-settings: "opsz" 36;
 }
 
 h2 {
   @apply font-semibold mt-2 text-3xl;
-  font-variation-settings: "opsz" 30;
 }
 
 h3 {
   @apply font-semibold text-2xl;
-  font-variation-settings: "opsz" 24;
 }
 
 h4 {
@@ -45,17 +40,14 @@ h4 {
 
 h5 {
   @apply font-semibold mt-2 text-lg;
-  font-variation-settings: "opsz" 18;
 }
 
 h6 {
   @apply font-semibold mt-2 text-base;
-  font-variation-settings: "opsz" 16;
 }
 
 p {
   @apply leading-6 text-base;
-  font-variation-settings: 'opsz' 16, 'wght' 450;
 }
 
 a {
