@@ -1,6 +1,6 @@
 ---
     title: "MOSFET Process Characterization Guide"
-    date: "2-3-26"
+    date: "2-22-26"
     excerpt: "Extracting simple MOSFET model variables from a complex model file."
     tags: ["Electrical Engineering"]
     isPublished: true
