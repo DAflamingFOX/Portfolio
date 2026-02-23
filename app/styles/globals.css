@@ -60,3 +60,7 @@ p {
 a {
   @apply no-underline hover:underline
 } */
+
+.katex-display {
+  @apply max-w-full overflow-x-auto overflow-y-hidden
+}

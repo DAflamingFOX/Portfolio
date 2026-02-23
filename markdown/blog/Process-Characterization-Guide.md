@@ -6,7 +6,7 @@
     isPublished: true
 ---
 
-*Reference code for this blog is available [here](https://github.com/daflamingfox/mosfet-process-characterization).*
+*Reference code for this blog is available [here.](https://github.com/daflamingfox/mosfet-process-characterization)*
 
 # Introduction
 
