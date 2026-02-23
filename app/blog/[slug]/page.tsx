@@ -7,6 +7,7 @@ import ArticleHeader from './ArticleHeader';
 import ArticleFooter from './ArticleFooter';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
 
 export async function generateStaticParams() {
     const posts = getPostSlugs();
@@ -30,7 +31,7 @@ export default async function BlogPostPage({ params }: Props) {
             mdxOptions: {
                 format: format,
                 remarkPlugins: [remarkGfm, remarkMath],
-                rehypePlugins: [rehypeKatex, rehypeHighlight],
+                rehypePlugins: [rehypeKatex, rehypeHighlight, rehypeSlug],
             },
         },
         components: customMDXComponents,
