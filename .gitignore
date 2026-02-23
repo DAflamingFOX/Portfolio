@@ -45,3 +45,6 @@ next-env.d.ts
 
 # Pagefind
 _pagefind/
+
+# next env
+next-env.d.ts
