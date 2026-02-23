@@ -107,7 +107,7 @@ export default function Page() {
                     <h1>Get In Touch!</h1>
                     <p className='text-foreground-500'>Check out my <Link href='/resume/Resume_9-10-25.pdf' isExternal showAnchorIcon>resume</Link> or connect with me.</p>
                 </div>
-                <div className="flex flex-row justify-between gap-x-4">
+                <div className="flex flex-col md:flex-row justify-between gap-4">
                     <div>
                         <p>The easiest way to get in touch with me is via <Link href={mailto}>email.</Link></p>
                         <p>You can fill out the form to send me a message, or you can email me directly via: <span className="whitespace-nowrap">jeff@jeff-m.com <CopyButton textToCopy="jeff@jeff-m.com" /></span></p>
@@ -116,7 +116,7 @@ export default function Page() {
                 </div>
                 <Divider />
 
-                <div className="flex flex-row justify-between gap-x-4 mx-auto">
+                <div className="flex flex-row flex-wrap justify-center gap-4 mx-auto">
                     <Button
                         as={Link}
                         href={mailto}
