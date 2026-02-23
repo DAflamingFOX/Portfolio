@@ -3,7 +3,7 @@
 
 View the website [here](https://www.jeffrey-m.com)!
 
-This site is built with [Next.js](https://nextjs.org/), [Nextra](https://nextra.site), and [HeroUI](https://www.heroui.com/).
+This site is built with [Next.js](https://nextjs.org/) and [HeroUI](https://www.heroui.com/).
 
 ## Usage
 
