@@ -1,63 +1,62 @@
 @import "tailwindcss";
+@import "../../node_modules/@highlightjs/cdn-assets/styles/atom-one-dark.min.css";
 
-@config "../../tailwind.config.js";
+@config "../../tailwind.config.cjs";
 
 @plugin "../../hero.ts";
 
-@source "../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
-
-@custom-variant dark (&:is(.dark *));
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 
 @font-face {
-  font-family: "formaDJR";
-  src: url("./FormaDJR/FormaDJRVariable[opsz\,slnt\,wdth\,wght]-Edu.ttf");
-  /* Alot of the font features, ss03, ss04, ss05, ss07, ss09, ss10 only enable at the smallest optical size of 8 (this is automatic) */
-  font-feature-settings: "calt", "liga", "rlig", "rvrn", "kern", "rclt", "ss01", "ss02", "ss08";
+  font-family: "Lexend";
+  src: url("./Lexend/Lexend-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: "Monaspace Krypton";
+  src: url("./Monaspace Krypton/MonaspaceKryptonNF-Regular.otf");
 }
 
 :root {
-  font-family: 'formaDJR', 'lato', Arial, Helvetica, sans-serif;
+  font-family: 'Lexend', Arial, sans-serif;
+}
+
+@theme {
+  --font-mono: "Monaspace Krypton"
 }
 
 .content {
-  @apply max-w-xs md:max-w-xl lg:max-w-3xl mx-auto mb-2
+  @apply px-2 mb-2
 }
 
 h1 {
-  @apply font-bold mt-2 text-4xl;
-  font-variation-settings: "opsz" 36;
+  @apply font-bold text-4xl;
 }
 
 h2 {
   @apply font-semibold mt-2 text-3xl;
-  font-variation-settings: "opsz" 30;
 }
 
 h3 {
-  @apply font-semibold text-2xl;
-  font-variation-settings: "opsz" 24;
+  @apply font-semibold mt-2 text-2xl;
 }
 
 h4 {
   @apply font-semibold mt-2 text-xl;
-  font-variation-settings: "opsz" 20;
 }
 
 h5 {
   @apply font-semibold mt-2 text-lg;
-  font-variation-settings: "opsz" 18;
 }
 
 h6 {
   @apply font-semibold mt-2 text-base;
-  font-variation-settings: "opsz" 16;
 }
 
 p {
   @apply leading-6 text-base;
-  font-variation-settings: 'opsz' 16, 'wght' 450;
 }
-
+/*
 a {
   @apply no-underline hover:underline
-}
+} */

@@ -1,62 +1,70 @@
 'use client';
 
-import KnockoutHeadingDivider from "@/components/KnockoutHeadingDivider";
 import { Divider, Link } from "@heroui/react";
+import { Image } from "@heroui/react";
+import { Card, CardBody } from "@heroui/react";
+import { redirect, RedirectType } from "next/navigation";
+
 
 export default function Page() {
+
     return (
         <>
-            <div className="content">
-                <h1>Welcome</h1>
-                <KnockoutHeadingDivider lines={3} text="Howdy, I'm Jeffrey" />
-                <div className="my-4 flex flex-col gap-y-2 text-xl">
-                    {/* <div>
-                        <i>I'm actively looking for a <b>summer internship</b> or full-time job upon graduation.</i> <br />
-                    </div> */}
-                    <div>
-                        I&apos;m an <b>electrical engineering</b> major at Tarleton State University. <br />
-                    </div>
-                    <div>
-                        I design, build, and write firmware for <b>custom PCBs</b> (printed circuit boards). <br />
-                    </div>
-                    <div>
-                        I&apos;m a <b>FIRST alumni</b>, and robotics enthusiast.
+            <div className="flex flex-col mx-auto my-4 px-10 max-w-6xl gap-y-4">
+                {/* Image & Intro */}
+                <div className="flex flex-row md:justify-center py-4 md:gap-x-8">
+                    {/* Capybara Image */}
+                    <Image className="hidden md:block w-sm" src="/capybara_silk_render.png" alt=""/>
+                    {/* Intro */}
+                    <div className="flex flex-col gap-y-4 w-lg">
+                        <h1 className="mt-0">Howdy</h1>
+                        <p>
+                            I&apos;m Jeff Morris - a freelance electrical engineer and firmware developer, and a <Link href="https://www.firstinspires.org/" underline="always" color="foreground">FIRST Robotics</Link> alumnus.
+                            I am also currently pursuing a B.S. in Electrical Engineering at Tarleton State University.
+                        </p>
+                        <p>
+                            I specialize in microcontroller systems for robotics, focusing on prototyping and production-ready designs.
+                            My goal is to create solutions which solve or simplify real-world problems, while continuously furthering my education and embracing new technologies.
+                        </p>
+                        <p>
+                            Additionally, I am proficient in Markdown and LaTeX, which I use to produce clear technical documentation to support development and collaboration on projects.
+                        </p>
                     </div>
                 </div>
-                <KnockoutHeadingDivider lines={0} text="Learn more" />
-                <div>
-                    <div className="my-4 grid grid-cols-[auto_auto_1fr] gap-x-4 gap-y-6">
-                        <h3 className="text-right">Blog</h3>
-                        <Divider orientation="vertical" />
-                        <div className="flex flex-col justify-between h-auto">
-                            <p>Check out my random writings and other works. (coming soon)</p>
-                            <Link isDisabled showAnchorIcon href="/blog">Link</Link>
-                        </div>
 
-                        <h3 className="text-right">Portfolio</h3>
-                        <Divider orientation="vertical" />
-                        <div className="flex flex-col justify-between h-auto">
-                            <p>Showcase of my projects I&apos;ve done over the years.</p>
-                            <Link showAnchorIcon href="/portfolio">Link</Link>
-                        </div>
+                <Divider />
 
-                        <h3 className="text-right">Resume</h3>
-                        <Divider orientation="vertical" />
-                        <div className="flex flex-col justify-between h-auto">
-                            <p>If you&apos;re a hiring manager you should go here.</p>
-                            <Link showAnchorIcon href="/resume">Link</Link>
-                        </div>
+                {/* Links */}
+                <div className="flex flex-col gap-y-8 my-4">
 
-                        <h3 className="text-right">Contact Me</h3>
-                        <Divider orientation="vertical" />
-                        <div className="flex flex-col justify-between h-auto">
-                            <p>If you want to connect with me or just reach out to me directly.</p>
-                            <Link showAnchorIcon href="/contact_me">Link</Link>
-                        </div>
+                    {/* Blog */}
+                    <Card className="flex flex-col items-center py-2 max-w-5xl w-full mx-auto hover:scale-[1.05] transition-transform duration-200 ease-in-out" isPressable onPress={() => redirect('/blog/', RedirectType.push)} shadow="md">
+                        <CardBody className="flex flex-col items-center gap-y-2">
+                            <h2>Visit my blog</h2>
+                            <p className="text-secondary">Random technical writing ranging from math & engineering to robotics.</p>
+                            <p>Click here to learn more.</p>
+                        </CardBody>
+                    </Card>
 
-                    </div>
+                    {/* Projects */}
+                    <Card className="flex flex-col items-center py-2 max-w-5xl w-full mx-auto hover:scale-[1.05] transition-transform duration-200 ease-in-out" isPressable onPress={() => redirect('/projects/', RedirectType.push)} shadow="md">
+                        <CardBody className="flex flex-col items-center gap-y-2">
+                            <h2>See my projects</h2>
+                            <p className="text-secondary">See my open portfolio of projects that I&apos;ve worked on over the years.</p>
+                            <p>Click here to learn more.</p>
+                        </CardBody>
+                    </Card>
+
+                    {/* Contact me */}
+                    <Card className="flex flex-col items-center py-2 max-w-5xl w-full mx-auto hover:scale-[1.05] transition-transform duration-200 ease-in-out" isPressable onPress={() => redirect('/contact_me/', RedirectType.push)} shadow="md">
+                        <CardBody className="flex flex-col items-center gap-y-2">
+                            <h2>Get in touch</h2>
+                            <p className="text-secondary">View my resume, connect with me on social media, or get in touch with me!</p>
+                            <p>Click here to learn more.</p>
+                        </CardBody>
+                    </Card>
                 </div>
             </div>
         </>
-    );
+    )
 }

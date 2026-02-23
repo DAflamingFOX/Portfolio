@@ -1,17 +1,25 @@
+import createMDX from '@next/mdx'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    async redirects() {
-        return [
-            // Buisness card redirect.
-            {
-                source: '/biz_card',
-                destination: '/',
-                permanent: true,
-            },
-
-        ]
+    experimental: {
+        globalNotFound: true,
     },
+    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 }
 
+const withMDX = createMDX({
+    options: {
+        remarkPlugins: [
+            'remark-frontmatter',
+            'remark-math'
+        ],
+        rehypePlugins: [
+            'rehype-katex'
+        ]
+    },
+    extension: /\.(md|mdx)$/,
+})
+
 // Merge MDX config with Next.js config
-export default nextConfig;
+export default withMDX(nextConfig);
