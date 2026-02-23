@@ -15,7 +15,7 @@ export default function GlobalNotFound() {
                     <div className="flex h-screen w-screen justify-center items-center relative">
                         {/* Container for image + centered text */}
                         <div className="flex flex-col items-center">
-                            <Image isBlurred src="/rethink_your_life.jpeg" className="mb-4" />
+                            <Image isBlurred src="/rethink_your_life.jpeg" alt="" className="mb-4" />
 
                             <div className="text-2xl font-semibold text-center">
                                 You want to <Link href="/" className="text-2xl">go home</Link> and rethink your life.

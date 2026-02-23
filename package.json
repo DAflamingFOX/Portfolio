@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next --turbopack",
-    "build": "next build",
+    "build": "pnpm run lint && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@heroui/react": "^2.8.8",

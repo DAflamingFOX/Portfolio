@@ -1,6 +1,6 @@
 import { getPostBySlug, getPostSlugs } from '@/lib/blog';
 import { CompileMDXResult, compileMDX } from 'next-mdx-remote/rsc';
-import { useMDXComponents } from '@/mdx-components'
+import { customMDXComponents } from '@/mdx-components'
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import ArticleHeader from './ArticleHeader';
@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: Props) {
                 rehypePlugins: [rehypeKatex, rehypeHighlight],
             },
         },
-        components: useMDXComponents(),
+        components: customMDXComponents,
     });
 
     return (

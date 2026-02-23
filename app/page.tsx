@@ -1,10 +1,8 @@
 'use client';
 
 import { Divider, Link } from "@heroui/react";
-import { Button } from "@heroui/react";
 import { Image } from "@heroui/react";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
-import { url } from "inspector";
+import { Card, CardBody } from "@heroui/react";
 import { redirect, RedirectType } from "next/navigation";
 
 
@@ -16,12 +14,12 @@ export default function Page() {
                 {/* Image & Intro */}
                 <div className="flex flex-row md:justify-center py-4 md:gap-x-8">
                     {/* Capybara Image */}
-                    <Image className="hidden md:block w-sm" src="/capybara_silk_render.png" />
+                    <Image className="hidden md:block w-sm" src="/capybara_silk_render.png" alt=""/>
                     {/* Intro */}
                     <div className="flex flex-col gap-y-4 w-lg">
                         <h1 className="mt-0">Howdy</h1>
                         <p>
-                            I'm Jeff Morris - a freelance electrical engineer and firmware developer, and a <Link href="https://www.firstinspires.org/" underline="always" color="foreground">FIRST Robotics</Link> alumnus.
+                            I`&apos;`m Jeff Morris - a freelance electrical engineer and firmware developer, and a <Link href="https://www.firstinspires.org/" underline="always" color="foreground">FIRST Robotics</Link> alumnus.
                             I am also currently pursuing a B.S. in Electrical Engineering at Tarleton State University.
                         </p>
                         <p>
@@ -52,7 +50,7 @@ export default function Page() {
                     <Card className="flex flex-col items-center py-2 max-w-5xl w-full mx-auto hover:scale-[1.05] transition-transform duration-200 ease-in-out" isPressable onPress={() => redirect('/projects/', RedirectType.push)} shadow="md">
                         <CardBody className="flex flex-col items-center gap-y-2">
                             <h2>See my projects</h2>
-                            <p className="text-secondary">See my open portfolio of projects that I've worked on over the years.</p>
+                            <p className="text-secondary">See my open portfolio of projects that I`&apos;`ve worked on over the years.</p>
                             <p>Click here to learn more.</p>
                         </CardBody>
                     </Card>

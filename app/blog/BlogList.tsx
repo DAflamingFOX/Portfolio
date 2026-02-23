@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Chip } from '@heroui/react';
 import { Link } from '@heroui/react';
 import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";

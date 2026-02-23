@@ -1,12 +1,11 @@
 'use client';
 
-import KnockoutHeadingDivider from "@/components/KnockoutHeadingDivider";
-import { Card, Divider, Image, Link, Accordion, AccordionItem } from '@heroui/react';
+import { Card, Image, Link, Accordion, AccordionItem } from '@heroui/react';
 
 const luminaXDesc = <>
     <p>LuminaX is an addressable LED controller supporting pre-defined and custom animations.</p>
     <p>It interfaces via either a CAN bus or USB, and is designed to be used on FIRST® Robotics Competition robots.</p>
-    <p>It supports 5V at up to 8A on it's output and has two LED channels, meaning it can control about as many LEDs as your heart desires.</p>
+    <p>It supports 5V at up to 8A on it&apos;s output and has two LED channels, meaning it can control about as many LEDs as your heart desires.</p>
     <p>Unfortunately, LuminaX is unfinished, and is just a passion project of mine, I hope to finish it eventually though.</p>
 </>;
 
@@ -39,9 +38,9 @@ const cannectDesc = <>
 
 const cannectImgs = <>
     <div className="flex flex-col justify-around items-center gap-y-4">
-        <Image src="/portfolio/CANnectV2.png" />
-        <Image src="/portfolio/CANnect_in_use.jpeg"/>
-        <Image src="/portfolio/CANnect_in_use_arm.jpeg"/>
+        <Image src="/portfolio/CANnectV2.png" alt="CANnect V2" />
+        <Image src="/portfolio/CANnect_in_use.jpeg" alt="CANnect V1 in use"/>
+        <Image src="/portfolio/CANnect_in_use_arm.jpeg" alt="CANnect V1 in use on robot arm"/>
         {/* <Image className="max-h-50" src="/portfolio/cannect_direct_back.png" alt='cannect back' /> */}
         {/* <Image src="/portfolio/cannect.png" alt='cannect group' /> */}
     </div>

@@ -1,7 +1,5 @@
 import { getAllPosts } from '@/lib/blog';
 import BlogList from './BlogList';
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
-
 
 export default function BlogIndexPage() {
     const posts = getAllPosts();
