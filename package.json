@@ -1,7 +1,8 @@
 {
-  "name": "personal-site",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next --turbopack",
     "build": "next build",
@@ -9,26 +10,38 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroui/react": "^2.8.2",
+    "@heroui/react": "^2.8.8",
     "@heroui/use-theme": "^2.1.10",
+    "@highlightjs/cdn-assets": "^11.11.1",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.1.6",
     "@types/mdx": "^2.0.13",
-    "@vercel/analytics": "^1.5.0",
-    "framer-motion": "^12.23.11",
-    "next": "15.5.9",
+    "@vercel/analytics": "^1.6.1",
+    "framer-motion": "^12.31.0",
+    "gray-matter": "^4.0.3",
+    "next": "16.1.6",
+    "next-mdx-remote": "^5.0.0",
     "next-svgr": "^0.0.2",
     "next-themes": "^0.4.6",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "rehype-highlight": "^7.0.2",
+    "rehype-katex": "^7.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.11",
-    "@types/node": "^20.19.9",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "eslint": "^9.32.0",
+    "@eslint/eslintrc": "^3.3.3",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "^20.19.31",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
     "eslint-config-next": "15.3.4",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.8.3"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }

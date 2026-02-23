@@ -20,7 +20,7 @@ export function ContactForm({
         setIsProcessing(true);
 
         const formData = new FormData(form);
-        formData.append("access_key", "7d64eb7a-5b25-453a-ac52-1d330567a1b8");
+        formData.append("access_key", "97adb569-9a9a-4c5b-852f-918c9d230518");
 
         try {
 
@@ -32,8 +32,8 @@ export function ContactForm({
             const data = await response.json();
 
             if (data.success) {
-                setResult('success')
                 form.reset()
+                setResult('success')
             } else {
                 console.log("Error", data);
             }
@@ -81,10 +81,10 @@ export function ContactForm({
                 type="text"
             />
             <div className="flex gap-2">
-                <Button color={result === 'error' ? 'danger' : (result === 'success' ? 'success' : 'primary')} type="submit" isLoading={isProcessing}>
+                <Button color={result === 'error' ? 'danger' : (result === 'success' ? 'success' : 'primary')} type="submit" variant="ghost" isLoading={isProcessing} isDisabled={isProcessing || result === 'success'}>
                     Submit
                 </Button>
-                <Button type="reset" variant="flat" isDisabled={isProcessing}>
+                <Button type="reset" variant="ghost" isDisabled={isProcessing || result === 'success'}>
                     Reset
                 </Button>
             </div>

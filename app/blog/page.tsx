@@ -1,0 +1,23 @@
+import { getAllPosts } from '@/lib/blog';
+import BlogList from './BlogList';
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
+
+
+export default function BlogIndexPage() {
+    const posts = getAllPosts();
+
+    return (
+        <>
+            <div className='flex flex-col gap-y-4 px-8 py-8'>
+                <div className='flex flex-col gap-y-4 pb-8'>
+                    <h1>All Posts</h1>
+                    <p className='text-foreground-400'>The inner machinations of my mind...</p>
+                </div>
+
+                <BlogList posts={posts} />
+            </div>
+
+        </>
+    );
+
+}

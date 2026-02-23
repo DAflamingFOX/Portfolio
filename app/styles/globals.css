@@ -1,28 +1,36 @@
 @import "tailwindcss";
+@import "../../node_modules/@highlightjs/cdn-assets/styles/atom-one-dark.min.css";
 
-@config "../../tailwind.config.js";
+@config "../../tailwind.config.cjs";
 
 @plugin "../../hero.ts";
 
-@source "../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
-
-@custom-variant dark (&:is(.dark *));
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 
 @font-face {
   font-family: "Lexend";
   src: url("./Lexend/Lexend-VariableFont_wght.ttf");
 }
 
+@font-face {
+  font-family: "Monaspace Krypton";
+  src: url("./Monaspace Krypton/MonaspaceKryptonNF-Regular.otf");
+}
+
 :root {
   font-family: 'Lexend', Arial, sans-serif;
 }
 
+@theme {
+  --font-mono: "Monaspace Krypton"
+}
+
 .content {
-  @apply max-w-xs md:max-w-xl lg:max-w-3xl mx-auto mb-2
+  @apply px-2 mb-2
 }
 
 h1 {
-  @apply font-bold mt-2 text-4xl;
+  @apply font-bold text-4xl;
 }
 
 h2 {
@@ -30,12 +38,11 @@ h2 {
 }
 
 h3 {
-  @apply font-semibold text-2xl;
+  @apply font-semibold mt-2 text-2xl;
 }
 
 h4 {
   @apply font-semibold mt-2 text-xl;
-  font-variation-settings: "opsz" 20;
 }
 
 h5 {
@@ -49,7 +56,7 @@ h6 {
 p {
   @apply leading-6 text-base;
 }
-
+/*
 a {
   @apply no-underline hover:underline
-}
+} */

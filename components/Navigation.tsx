@@ -9,7 +9,6 @@ export function Navigation() {
     const leftNav = [
         { name: 'Blog', href: '/blog' },
         { name: 'Projects', href: '/projects' },
-        { name: 'Resume', href: '/resume' },
     ];
 
     const rightNav = [
@@ -54,11 +53,11 @@ export function Navigation() {
                 }
             </NavbarContent>
 
-            <div className="flex justify-end grow min-sm:grow-0">
+            <div className="flex justify-end grow sm:grow-0">
                 <ThemeSwitcher />
             </div>
 
-            <NavbarMenuToggle className="min-sm:hidden" />
+            <NavbarMenuToggle className="sm:hidden" />
 
             <NavbarMenu >
                 {

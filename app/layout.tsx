@@ -19,18 +19,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"></link>
+      </head>
       <body>
-          <Providers>
-            <div className="flex flex-col min-h-screen min-w-screen">
-              <Analytics />
-              <Navigation />
-              {/* min-h-[viewport - header height] This makes sure footer is just below the fold. */}
-            <div className="flex-grow h-full min-h-[calc(100vh-64px)]">
-                {children}
-              </div>
-             <Footer />
+        <Analytics />
+        <Providers>
+          <div className="flex flex-col min-h-screen min-w-screen">
+            <Navigation />
+            {/* min-h-[viewport - header height] This makes sure footer is just below the fold. */}
+            <div className="flex-grow h-full min-h-[calc(100vh-32px)]">
+              {children}
             </div>
-          </Providers>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );
