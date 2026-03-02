@@ -105,7 +105,7 @@ export default function Page() {
             <div className="flex flex-col mx-auto px-8 max-w-5xl gap-y-8">
                 <div className='flex flex-col gap-y-4 mt-4'>
                     <h1>Get In Touch!</h1>
-                    <p className='text-foreground-500'>Check out my <Link href='/resume/Resume_9-10-25.pdf' isExternal showAnchorIcon>resume</Link> or connect with me.</p>
+                    <p className='text-foreground-500'>Check out my <Link href='/resume/Resume.pdf' isExternal showAnchorIcon>resume</Link> or connect with me.</p>
                 </div>
                 <div className="flex flex-col md:flex-row justify-between gap-4">
                     <div>
