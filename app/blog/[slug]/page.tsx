@@ -6,8 +6,13 @@ import rehypeKatex from 'rehype-katex';
 import ArticleHeader from './ArticleHeader';
 import ArticleFooter from './ArticleFooter';
 import rehypeHighlight from 'rehype-highlight';
+// import python from '@/../@highlightjs/cdn-assets/languages/python.min.js'
+import python from 'highlight.js/lib/languages/python'
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
+
+// Force the pages in this route to be static.
+export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
     const posts = getPostSlugs();
@@ -30,8 +35,13 @@ export default async function BlogPostPage({ params }: Props) {
             parseFrontmatter: true,
             mdxOptions: {
                 format: format,
-                remarkPlugins: [remarkGfm, remarkMath],
-                rehypePlugins: [rehypeKatex, rehypeHighlight, rehypeSlug],
+                remarkPlugins: [
+                    remarkGfm, remarkMath],
+                rehypePlugins: [
+                    rehypeSlug,
+                    [rehypeHighlight, { languages: { python } }],
+                    rehypeKatex,
+                ],
             },
         },
         components: customMDXComponents,
