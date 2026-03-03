@@ -1,7 +1,7 @@
 import { extractFirstImage, getPostBySlug, getPostSlugs } from '@/lib/blog';
 import { CompileMDXResult, compileMDX } from 'next-mdx-remote/rsc';
 import { customMDXComponents } from '@/mdx-components'
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import ArticleHeader from './ArticleHeader';
@@ -17,8 +17,8 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata(
     { params }: Props,
-    parent: ResolvingMetadata
-) {
+    // parent: ResolvingMetadata
+): Promise<Metadata> {
     const { slug } = await params;
     const { content, metadata } = getPostBySlug(slug);
 
