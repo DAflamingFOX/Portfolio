@@ -62,3 +62,15 @@ export function getPostsByTag(tag: string): Post[] {
     const allPosts = getAllPosts();
     return allPosts.filter(post => post.metadata.tags.map(t => t.toLowerCase()).includes(tag.toLowerCase()));
 }
+
+export function extractFirstImage(content: string): string | null {
+    // Matches both ![alt](url) and <img src="url" />
+    const imgRegex = /!\[.*?\]\((.*?)\)|<img.*?src=["'](.*?)["']/;
+    const match = content.match(imgRegex);
+
+    if (match) {
+        return match[1] || match[2]; // match[1] for Markdown, match[2] for HTML
+    }
+
+    return null; // Fallback if no image exists
+}
