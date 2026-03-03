@@ -6,9 +6,9 @@
     isPublished: true
 ---
 
-*Reference code for this blog is available [here.](https://github.com/daflamingfox/mosfet-process-characterization)*
+*Reference python code and LTSpice schematics for this blog are available [here.](https://github.com/daflamingfox/mosfet-process-characterization)*
 
-*MOSFET model file is available [here.](/blog/files/process_characterization/mosfet_model.txt)*
+*Example MOSFET model file is available [here.](/blog/process-characterization/files/mosfet_model.txt)*
 
 # Introduction
 
