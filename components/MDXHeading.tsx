@@ -9,7 +9,6 @@ export const LinkIcon = ({
     size,
     height,
     width,
-    ...props
 }: IconProps) => {
     return (
         <svg
