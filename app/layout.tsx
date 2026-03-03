@@ -13,21 +13,20 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jeff-m.com"),
-  title: "Jeff's Portfolio",
-  description: "Jeffrey Morris' blog and portfolio.",
+  title: { default: "Home | Jeff-M", template: "%s | Jeff-M" },
+  description: "Jeff's blog and portfolio.",
+  themeColor: "#7828c8",
   openGraph: {
+    type: 'website',
+    siteName: "Jeff-M",
     title: "Jeff's Portfolio",
-    description: "Jeffrey Morris' blog and portfolio.",
-    siteName: "Jeff's Portfolio",
+    description: "Jeff's blog and portfolio.",
     images: [
       {
         url: '/capybara_silk_render.png',
-        width: 877,
-        height: 877
       }
     ],
     locale: 'en_US',
-    type: 'website'
   }
 }
 

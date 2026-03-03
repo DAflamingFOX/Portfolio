@@ -1,9 +1,34 @@
 import { getPostsByTag } from '@/lib/blog';
 import BlogList from './../../BlogList';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { decodeAction } from 'next/dist/server/app-render/entry-base';
 
 type Props = {
-    params: {slug: string}
+    params: { slug: string }
+}
+
+export async function generateMetadata(
+    { params }: Props,
+    // parent: ResolvingMetadata
+): Promise<Metadata> {
+    const { slug } = await params;
+    const decodedTag = decodeURI(slug);
+
+    return {
+        title: `Posts tagged '${decodedTag}'`,
+        description: `Filter blogs tagged by '${decodedTag}'`,
+        openGraph: {
+            title: `Posts tagged '${decodedTag}'`,
+            description: `Filter blogs tagged by '${decodedTag}'`,
+            type: 'website',
+            images: [
+                {
+                    url: '/bonfire-24.jpg'
+                }
+            ]
+        },
+    }
 }
 
 export default async function BlogTagPage({ params }: Props) {
@@ -20,7 +45,7 @@ export default async function BlogTagPage({ params }: Props) {
                 </div>
 
                 <div className='grow flex flex-col items-center'>
-                    <BlogList posts={posts}/>
+                    <BlogList posts={posts} />
                 </div>
             </div>
         </>

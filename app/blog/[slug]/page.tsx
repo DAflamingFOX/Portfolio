@@ -15,6 +15,8 @@ import rehypeSlug from 'rehype-slug';
 // Force the pages in this route to be static.
 export const dynamic = 'force-static';
 
+
+
 export async function generateMetadata(
     { params }: Props,
     // parent: ResolvingMetadata
@@ -26,13 +28,12 @@ export async function generateMetadata(
     const ogImage = firstImage || '/bonfire-24.jpg';
 
     return {
-        metadataBase: new URL("https://jeff-m.com"),
         title: metadata.title,
         description: metadata.excerpt,
         openGraph: {
+            type: 'article',
             title: metadata.title,
             description: metadata.excerpt,
-            type: 'article',
             publishedTime: metadata.date,
             authors: "Jeffrey Morris",
             images: [
@@ -42,17 +43,6 @@ export async function generateMetadata(
                 }
             ]
         },
-        twitter: {
-            card: 'summary_large_image',
-            title: metadata.title,
-            description: metadata.excerpt,
-            images: [
-                {
-                    url: ogImage,
-                    alt: metadata.title
-                }
-            ]
-        }
     }
 }
 
